@@ -130,7 +130,7 @@ int main(void)
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
   //1. Initialise the MPU6050 module and I2C
-	MPU6050_Init(&hi2c1);
+	MPU6050_Init(&hfmpi2c1);
 	//2. Configure Accel and Gyro parameters
 	myMpuConfig.Accel_Full_Scale = AFS_SEL_4g;
 	myMpuConfig.ClockSource = Internal_8MHz;

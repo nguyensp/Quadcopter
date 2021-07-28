@@ -47,8 +47,10 @@ void I2C_Read(uint8_t ADDR, uint8_t *i2cBif, uint8_t NofData)
 	//Need to Shift address to make it proper to i2c operation
 	MPUADDR = (MPU_ADDR<<1);
 	i2cBuf[0] = ADDR;
-	HAL_I2C_Master_Transmit(&i2cHandler, MPUADDR, i2cBuf, 1, 10);
-	HAL_I2C_Master_Receive(&i2cHandler, MPUADDR, i2cBif, NofData, 100);
+	HAL_FMPI2C_MASTER_Transmit(&i2cHandler, MPUADDR, i2cBuf, 1, 10);
+    HAL_FMPI2C_MASTER_Recieve(&i2cHandler, MPUADDR, i2cBif, NofData, 100);
+    //HAL_I2C_Master_Transmit(&i2cHandler, MPUADDR, i2cBuf, 1, 10);
+	//HAL_I2C_Master_Receive(&i2cHandler, MPUADDR, i2cBif, NofData, 100);
 }
 
 //3- i2c Write
