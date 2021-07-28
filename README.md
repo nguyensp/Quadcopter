@@ -1,7 +1,5 @@
 # historical
 This is a continuation of my senior design project.
-Here is a link to our final paper and presentation:
-
 We managed to create a working flight contoller using 
 PID control systems and finished just short of test
 flight. 
