@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/soopa/Desktop/Scratch/TrueFlight/Inc
+HeaderPath=C:/Users/soopa/Desktop/Quadcopter/Scratch/TrueFlight/Inc
 HeaderFiles=stm32f4xx_it.h;stm32f4xx_hal_conf.h;main.h;
-SourcePath=C:/Users/soopa/Desktop/Scratch/TrueFlight/Src
+SourcePath=C:/Users/soopa/Desktop/Quadcopter/Scratch/TrueFlight/Src
 SourceFiles=stm32f4xx_it.c;stm32f4xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]
