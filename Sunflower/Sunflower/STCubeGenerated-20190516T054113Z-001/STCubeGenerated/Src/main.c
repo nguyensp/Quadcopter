@@ -144,11 +144,14 @@ int main(void)
 	*/
 	DWT_Delay_Init();
 	char txData[30] = "Hello Paul\r\n";
+	char rx_buffer[50], tx_buffer[50];
   while (1)
   {
 		
 		HAL_UART_Transmit(&huart1, txData, 13, 10);
-
+		HAL_UART_Transmit(&huart1, (uint8_t *)tx_buffer, sprintf(tx_buffer, "Led is on\n"), 500);
+		HAL_UART_Receive(&huart1, (uint8_t*)rx_buffer, 50, 500);
+		HAL_UART_Transmit(&huart1, (uint8_t *)rx_buffer, 50, 500);
 		//Raw Data
 		MPU6050_Get_Accel_RawData(&myAccelRaw);
 		MPU6050_Get_Gyro_RawData(&myGyroRaw);
