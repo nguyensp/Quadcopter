@@ -143,9 +143,11 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
 	*/
 	DWT_Delay_Init();
-
+	char txData[30] = "Hello Paul\r\n";
   while (1)
   {
+		
+		HAL_UART_Transmit(&huart1, txData, 13, 10);
 
 		//Raw Data
 		MPU6050_Get_Accel_RawData(&myAccelRaw);
