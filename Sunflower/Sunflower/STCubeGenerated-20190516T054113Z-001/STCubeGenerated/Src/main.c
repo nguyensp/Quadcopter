@@ -87,6 +87,7 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 RawData_Def myAccelRaw, myGyroRaw;
 ScaledData_Def myAccelScaled, myGyroScaled;
+float gyro_x, gyro_y, gyro_z, acc_x, acc_y, acc_z;
 /* USER CODE END 0 */
 	uint16_t dutyCycle = 2;
 
@@ -136,13 +137,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-		//Output is 200Hz accordingly google calculation + Liz (caveat emptor)
-		HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-		HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
-		HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
-		HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
 	
-		DWT_Delay_Init();
+	DWT_Delay_Init();
 
   while (1)
   {
