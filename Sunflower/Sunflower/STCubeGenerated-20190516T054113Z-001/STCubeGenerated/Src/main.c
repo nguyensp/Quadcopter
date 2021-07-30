@@ -62,11 +62,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 FMPI2C_HandleTypeDef hfmpi2c1;
-
 RTC_HandleTypeDef hrtc;
-
 TIM_HandleTypeDef htim1;
-
 UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
 
@@ -88,6 +85,8 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 RawData_Def myAccelRaw, myGyroRaw;
 ScaledData_Def myAccelScaled, myGyroScaled;
+char rx_buffer[20], tx_buffer[20], status[20];
+int dutyCycle;
 /* USER CODE END 0 */
 	//uint16_t dutyCycle = 2;
 
@@ -140,11 +139,12 @@ int main(void)
 
 	
 	DWT_Delay_Init();
-  startPWM();
-  turnOnRedLED('set');
+	turnOnRedLED("toggle");
+	startPWM(htim1);
+	
   while (1)
   {
-		startBlueTooth();
+		startBlueTooth(rx_buffer, tx_buffer, status, huart1);
 
 		//Raw Data
 		MPU6050_Get_Accel_RawData(&myAccelRaw);
@@ -154,15 +154,18 @@ int main(void)
 		MPU6050_Get_Gyro_Scale(&myGyroScaled);
     
     if (rx_buffer[0] == 'u') {
-		  for (int i = 0; i < 30; i++) {
-		    setMotorSpeed(i)
-      }
+			
+			turnOnRedLED("set");
+			//startPWM(htim1);
+		  //setMotorSpeed(30, htim1);
     }
 
-    if (rx_buffer[0]) == 'd') {
-      for (int i = 35; i > 0; i--) {
-        setMotorSpeed(i);
-      }
+    if (rx_buffer[0] == 'd') {
+			turnOnRedLED("toggle");
+      //for (int i = 35; i > 0; i--) {
+      //  setMotorSpeed(i, htim1);
+      //}
+			stopPWM(htim1);
     }
   }
   /* USER CODE END 3 */
