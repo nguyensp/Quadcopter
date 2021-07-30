@@ -263,24 +263,3 @@ void _Accel_Cali(float x_min, float x_max, float y_min, float y_max, float z_min
 	//3* Z-Axis calibrate
 	A_Z_Bias		= (z_max + z_min)/2.0f;
 }
-
-/*15- Gyro Calibration
-void _Gyro_Cali()
-{
-		for (int cal_int = 0; cal_int < 2000; cal_int++)
-		{
-			gyro_x_cal += gyro_x;
-			gyro_y_cal += gyro_y;
-			gyro_z_cal += gyro_z;
-		}
-		gyro_x_cal /= 2000;
-		gyro_y_cal /= 2000;
-		gyro_z_cal /= 2000;
-
-void IMU_angles()
-{
-		
-}
-
-void 
-*/
