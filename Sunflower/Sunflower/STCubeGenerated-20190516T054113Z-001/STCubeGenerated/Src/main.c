@@ -137,43 +137,33 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	/*HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
-	*/
+
+	
 	DWT_Delay_Init();
-	char txData[30] = "Hello Paul\r\n";
-	char rx_buffer[50], tx_buffer[50];
+  startPWM();
+  turnOnRedLED('set');
   while (1)
   {
-		
-		HAL_UART_Transmit(&huart1, txData, 13, 10);
-		HAL_UART_Transmit(&huart1, (uint8_t *)tx_buffer, sprintf(tx_buffer, "Led is on\n"), 500);
-		HAL_UART_Receive(&huart1, (uint8_t*)rx_buffer, 50, 500);
-		HAL_UART_Transmit(&huart1, (uint8_t *)rx_buffer, 50, 500);
+		startBlueTooth();
+
 		//Raw Data
 		MPU6050_Get_Accel_RawData(&myAccelRaw);
 		MPU6050_Get_Gyro_RawData(&myGyroRaw);
 		//Scaled Data
 		MPU6050_Get_Accel_Scale(&myAccelScaled);
 		MPU6050_Get_Gyro_Scale(&myGyroScaled);
-		
-    //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 1);	
-    //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
-    turnOnBlueLED();
+    
+    if (rx_buffer[0] == 'u') {
+		  for (int i = 0; i < 30; i++) {
+		    setMotorSpeed(i)
+      }
+    }
 
-		/*Motor Output
-		htim1.Instance->CCR1 = dutyCycle;
-		htim1.Instance->CCR2 = dutyCycle;
-		htim1.Instance->CCR3 = dutyCycle;
-		htim1.Instance->CCR4 = dutyCycle;
-		dutyCycle+= 2;
-		if(dutyCycle == 30) 
-      dutyCycle=28;
-		HAL_Delay(1000);
-    */
+    if (rx_buffer[0]) == 'd') {
+      for (int i = 35; i > 0; i--) {
+        setMotorSpeed(i);
+      }
+    }
   }
   /* USER CODE END 3 */
 

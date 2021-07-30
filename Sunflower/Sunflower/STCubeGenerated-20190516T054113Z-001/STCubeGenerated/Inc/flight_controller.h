@@ -8,5 +8,8 @@
 
 void turnOnRedLED(void);
 void turnOnBlueLED(void);
+void startPWM(void);
+void startBlueTooth(char& rx_buffer[20], char& tx)buffer[20]);
+void setMotorSpeed(int dutyCycle);
 
 #endif
