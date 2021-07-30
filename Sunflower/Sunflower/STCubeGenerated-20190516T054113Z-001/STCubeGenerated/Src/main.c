@@ -43,8 +43,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "TJ_MPU6050.h"
-#include "dwt_stm32_delay.h"
+//#include "TJ_MPU6050.h"
+//#include "dwt_stm32_delay.h"
+#include "flight_controller.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -87,9 +88,8 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 RawData_Def myAccelRaw, myGyroRaw;
 ScaledData_Def myAccelScaled, myGyroScaled;
-float gyro_x, gyro_y, gyro_z, acc_x, acc_y, acc_z;
 /* USER CODE END 0 */
-	uint16_t dutyCycle = 2;
+	//uint16_t dutyCycle = 2;
 
 /**
   * @brief  The application entry point.
@@ -137,11 +137,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+	/*HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
-	
+	*/
 	DWT_Delay_Init();
 
   while (1)
@@ -153,16 +153,13 @@ int main(void)
 		//Scaled Data
 		MPU6050_Get_Accel_Scale(&myAccelScaled);
 		MPU6050_Get_Gyro_Scale(&myGyroScaled);
-
-		acc_x = myAccelRaw.x;
-		acc_y = myAccelRaw.y;
-		acc_z = myAccelRaw.z;
-	
-		gyro_x = myGyroRaw.x;
-		gyro_y = myGyroRaw.y;
-		gyro_z = myGyroRaw.z;
 		
-		//Motor Output
+    //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 1);	
+    //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
+    turnOnBlueLED();
+
+		/*Motor Output
 		htim1.Instance->CCR1 = dutyCycle;
 		htim1.Instance->CCR2 = dutyCycle;
 		htim1.Instance->CCR3 = dutyCycle;
@@ -171,6 +168,7 @@ int main(void)
 		if(dutyCycle == 30) 
       dutyCycle=28;
 		HAL_Delay(1000);
+    */
   }
   /* USER CODE END 3 */
 
@@ -489,8 +487,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function should not be modified, when the callback is needed,
            the HAL_UART_RxCpltCallback could be implemented in the user file
    */
-	HAL_UART_Transmit(&huart1, (uint8_t *)rxData, strlen(rxData), 10);
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+	//HAL_UART_Transmit(&huart1, (uint8_t *)rxData, strlen(rxData), 10);
+	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
 }
 
 /* USER CODE END 4 */

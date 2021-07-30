@@ -34,6 +34,7 @@ stcubegenerated\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex
 stcubegenerated\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 stcubegenerated\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_fmpi2c.h
 stcubegenerated\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_fmpi2c_ex.h
+stcubegenerated\main.o: ../Inc/flight_controller.h
 stcubegenerated\main.o: ../Inc/TJ_MPU6050.h
 stcubegenerated\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 stcubegenerated\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

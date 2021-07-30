@@ -1,7 +1,4 @@
-#include <TJ_MPU6050.h>
-#include <dwt_stm32_delay.h>
-#include <math.h>
-#include "stm32f4xx_hal.h"
+#include "flight_controller.h"
 
 void turnOnRedLED() {
     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);

@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.27.1.0
 Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: john doe, john doe inc, LIC=----
+License Information: Paul Nguyen, Cal State East Bay, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.27.1.0
@@ -21,37 +21,52 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-C:\Users\Jonathan\Desktop\Quadcopter Code Generation\STCubeGenerated FOLDER\STCubeGenerated-20190516T054113Z-001\STCubeGenerated\MDK-ARM\STCubeGenerated.uvprojx
-Project File Date:  05/15/2019
+C:\Users\soopa\Desktop\Quadcopter\Sunflower\Sunflower\STCubeGenerated-20190516T054113Z-001\STCubeGenerated\MDK-ARM\STCubeGenerated.uvprojx
+Project File Date:  07/29/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'STCubeGenerated'
+Rebuild target 'STCubeGenerated'
+assembling startup_stm32f410cx.s...
+compiling TJ_MPU6050.c...
+compiling stm32f4xx_it.c...
+compiling dwt_stm32_delay.c...
+compiling flight_controller.c...
+../Inc/flight_controller.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Src\flight_controller.c: 1 warning, 0 errors
 compiling stm32f4xx_hal_msp.c...
 compiling main.c...
-../Src/main.c(301): warning:  #188-D: enumerated type mixed with another type
-  			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, 1); //Greem				
-../Src/main.c(390): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  			angle_pitch_gyro = angle_pitch_gyro * 0.9 + angle_pitch_acc * 0.1;     //Correct the drift of the gyro pitch angle with the accelerometer pitch angle
-../Src/main.c(390): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  			angle_pitch_gyro = angle_pitch_gyro * 0.9 + angle_pitch_acc * 0.1;     //Correct the drift of the gyro pitch angle with the accelerometer pitch angle
-../Src/main.c(391): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  			angle_roll_gyro = angle_roll_gyro * 0.9 + angle_roll_acc * 0.1;        //Correct the drift of the gyro roll angle with the accelerometer roll angle
-../Src/main.c(391): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  			angle_roll_gyro = angle_roll_gyro * 0.9 + angle_roll_acc * 0.1;        //Correct the drift of the gyro roll angle with the accelerometer roll angle
-../Src/main.c(392): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  			angle_yaw_gyro = angle_yaw_gyro * 0.9 + angle_yaw_acc * 0.1;
-../Src/main.c(392): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  			angle_yaw_gyro = angle_yaw_gyro * 0.9 + angle_yaw_acc * 0.1;
-../Src/main.c(481): warning:  #188-D: enumerated type mixed with another type
-  				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, 1); //rad
-../Src/main.c(160): warning:  #177-D: variable "txData"  was declared but never referenced
-  		char txData[30] = "Hello World\r\n";
-../Src/main.c: 9 warnings, 0 errors
+../Inc/flight_controller.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Src/main.c(158): warning:  #188-D: enumerated type mixed with another type
+  		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 1);	
+../Src/main.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_fmpi2c.c...
+compiling stm32f4xx_hal_fmpi2c_ex.c...
+compiling stm32f4xx_hal_rtc.c...
+compiling stm32f4xx_hal_rtc_ex.c...
+compiling stm32f4xx_hal_rcc.c...
+compiling stm32f4xx_hal_tim_ex.c...
+compiling stm32f4xx_hal_uart.c...
+compiling stm32f4xx_hal_tim.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_gpio.c...
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal_flash_ex.c...
+compiling stm32f4xx_hal_flash_ramfunc.c...
+compiling stm32f4xx_hal_flash.c...
+compiling stm32f4xx_hal_dma.c...
+compiling stm32f4xx_hal_dma_ex.c...
+compiling retarget_io.c...
+compiling stm32f4xx_hal_pwr_ex.c...
+compiling system_stm32f4xx.c...
+compiling stm32f4xx_hal_cortex.c...
+compiling stm32f4xx_hal.c...
 linking...
-Program Size: Code=14592 RO-data=632 RW-data=308 ZI-data=1460  
+Program Size: Code=9572 RO-data=520 RW-data=56 ZI-data=1456  
 FromELF: creating hex file...
-"STCubeGenerated\STCubeGenerated.axf" - 0 Error(s), 9 Warning(s).
+"STCubeGenerated\STCubeGenerated.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -76,8 +91,8 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_STCubeGenerated
-  C:\Users\Jonathan\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include
-  C:\Users\Jonathan\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  C:\Users\soopa\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include
+  C:\Users\soopa\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -91,7 +106,7 @@ Package Vendor: Keil
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:ITM:1.2.0
       Source file:   Source\retarget_io.c
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:12
 </pre>
 </body>
 </html>

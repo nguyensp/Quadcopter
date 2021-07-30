@@ -5,6 +5,7 @@
 "stcubegenerated\main.o"
 "stcubegenerated\stm32f4xx_it.o"
 "stcubegenerated\stm32f4xx_hal_msp.o"
+"stcubegenerated\flight_controller.o"
 "stcubegenerated\stm32f4xx_hal_fmpi2c.o"
 "stcubegenerated\stm32f4xx_hal_fmpi2c_ex.o"
 "stcubegenerated\stm32f4xx_hal_rtc.o"
