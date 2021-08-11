@@ -12,4 +12,7 @@ programmable autonomous gps flight paths and a camera
 for first person view flight experiences with a controller.
 
 This is a work in progress. Old files will be put in a separate
-folder for reference.
+folder for reference. I can't seem to locate the file of translated
+PID outputs to motor control but there's video. The working will
+be there anyway in the refactor. Studying event loops for now
+and contemplating various design decisions.
